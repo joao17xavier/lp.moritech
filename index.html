@@ -503,7 +503,7 @@ footer strong{color:#64748b}
     <div class="price-desc-line">Planilha + 2 reuniões estratégicas + 7 dias de suporte</div>
     <div class="price-promo">
       <span class="currency">R$</span>
-      <span class="value">297<span style="font-size:2rem">,00</span></span>
+      <span class="value">397<span style="font-size:2rem">,90</span></span>
     </div>
     <div class="price-savings">🎯 Investimento único — sem mensalidade</div>
     <div class="trial-notice">✅ <strong>Entrega em até 5 dias úteis.</strong> Processo 100% personalizado para a realidade da sua operação.</div>
@@ -716,7 +716,7 @@ footer strong{color:#64748b}
     <h2 class="section-title">Pare de precificar no achismo.<br>Comece a cobrar o que você realmente vale.</h2>
     <p class="section-sub">Cada mês com precificação errada é lucro que some sem você perceber. Uma única decisão certa paga o investimento muitas vezes.</p>
     <div class="final-price-row">
-      <span class="final-value">R$ 297,00</span>
+      <span class="final-value">R$ 397,90</span>
       <span class="final-period">· investimento único</span>
     </div>
     <div class="cta-final-wrap">
@@ -735,7 +735,7 @@ footer strong{color:#64748b}
 
 <!-- STICKY MOBILE -->
 <div class="sticky-cta">
-  <a data-cta="sticky_mobile_diagnostico" href="https://pay.kiwify.com.br/iX4SCvI">🎯 Garantir meu diagnóstico — R$ 297,00</a>
+  <a data-cta="sticky_mobile_diagnostico" href="https://pay.kiwify.com.br/iX4SCvI">🎯 Garantir meu diagnóstico — R$ 397,90</a>
   <p class="sticky-cta-sub">Pagamento seguro · Entrega em até 5 dias úteis</p>
 </div>
 
@@ -784,7 +784,7 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
   // 1. ViewContent
   window.addEventListener('load',function(){
-    fbStandard('ViewContent',{content_name:'Diagnóstico Precificação LP',content_category:'landing_page',value:297,currency:'BRL'});
+    fbStandard('ViewContent',{content_name:'Diagnóstico Precificação LP',content_category:'landing_page',value:397,currency:'BRL'});
   });
 
   // 2. Scroll Depth
@@ -806,9 +806,9 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
     var el=e.target.closest('[data-cta]');
     if(!el)return;
     var cta=el.getAttribute('data-cta');
-    fbStandard('InitiateCheckout',{content_name:'Diagnóstico Precificação',value:297,currency:'BRL',num_items:1});
+    fbStandard('InitiateCheckout',{content_name:'Diagnóstico Precificação',value:397,currency:'BRL',num_items:1});
     fbEvent('CTAClick',{cta_id:cta,time_to_click_sec:Math.round((Date.now()-pageLoadTime)/1000),scroll_at_click:scrollPct()});
-    if(cta==='sticky_mobile_diagnostico'){fbStandard('Lead',{content_name:'Diagnóstico Mobile CTA',value:297,currency:'BRL'})}
+    if(cta==='sticky_mobile_diagnostico'){fbStandard('Lead',{content_name:'Diagnóstico Mobile CTA',value:397,currency:'BRL'})}
   });
 
   // 5. Seções visualizadas
