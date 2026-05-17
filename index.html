@@ -152,7 +152,11 @@ nav{
 .video-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:600;color:rgba(255,255,255,0.75);z-index:1;letter-spacing:-0.01em}
 .video-sublabel{font-size:0.8rem;color:rgba(255,255,255,0.4);z-index:1}
 .video-container iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
-.video-hint{text-align:center;font-size:0.78rem;color:var(--ink-muted);margin-top:10px}
+.video-sub-text{
+  font-size:1rem;color:var(--ink-soft);line-height:1.7;
+  max-width:680px;margin:20px auto 0;text-align:center;
+  padding:0 24px;
+}
 
 /* ── PRICE BOX ── */
 .price-section{max-width:820px;margin:0 auto;padding:40px 24px 0}
@@ -371,21 +375,20 @@ footer strong{color:#64748b}
 <div class="hero">
   <div class="badge"><span class="badge-dot"></span>Diagnóstico 100% personalizado · Powered by IA</div>
   <h1>Você trabalha, entrega, fatura.<br>Mas sabe onde vai o <mark>seu lucro</mark>?</h1>
-  <p class="hero-sub">A maioria dos prestadores de serviço define preço no achismo — e trabalha sem ver resultado proporcional. Com o Diagnóstico de Precificação + Plataforma Precifica+, você descobre exatamente quanto cobrar, onde está perdendo margem e o que fazer para mudar isso.</p>
 </div>
 
 <!-- VIDEO -->
 <div class="video-wrap reveal">
   <div class="video-container" id="videoContainer">
-    <div class="video-placeholder" id="videoPlaceholder" onclick="loadVideo()">
-      <div class="play-btn">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><polygon points="5,3 19,12 5,21"/></svg>
-      </div>
-      <div class="video-label">Assista antes de decidir — 90 segundos</div>
-      <div class="video-sublabel">Como funciona o diagnóstico na prática</div>
-    </div>
+    <iframe
+      src="https://www.youtube.com/embed/BTCXMzk6OWM?autoplay=1&mute=1&rel=0&modestbranding=1&playsinline=1"
+      frameborder="0"
+      allow="autoplay; fullscreen; picture-in-picture"
+      allowfullscreen
+      title="Diagnóstico de Precificação — Precifica+"
+    ></iframe>
   </div>
-  <p class="video-hint">▶ Clique para assistir · 1 min 30 seg</p>
+  <p class="video-sub-text">A maioria dos prestadores de serviço define preço no achismo — e trabalha sem ver resultado proporcional. Com o Diagnóstico de Precificação + Plataforma Precifica+, você descobre exatamente quanto cobrar, onde está perdendo margem e o que fazer para mudar isso.</p>
 </div>
 
 <!-- PRICE BOX -->
@@ -672,13 +675,6 @@ footer strong{color:#64748b}
 </div>
 
 <script>
-// Vídeo — substitua SEU_VIDEO_ID pelo ID do YouTube após gravar
-// Exemplo YouTube: https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1
-function loadVideo() {
-  var c = document.getElementById('videoContainer');
-  c.innerHTML = '<iframe src="https://www.youtube.com/embed/BTCXMzk6OWM?autoplay=1&rel=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
-}
-
 // FAQ toggle
 document.querySelectorAll('.faq-q').forEach(q=>{
   q.addEventListener('click',()=>q.parentElement.classList.toggle('open'));
@@ -770,9 +766,8 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
     el.addEventListener('click',function(){fbEvent('FAQOpened',{faq_id:el.getAttribute('data-faq')})});
   });
 
-  // 7. Clique no play do vídeo
-  var vp=document.getElementById('videoPlaceholder');
-  if(vp){vp.addEventListener('click',function(){once('video_play',function(){fbEvent('VideoPlay',{time_sec:Math.round((Date.now()-pageLoadTime)/1000),scroll_pct:scrollPct()})})})}
+  // 7. Rastreia quando vídeo fica visível (autoplay já ativo)
+  once('video_view',function(){fbEvent('VideoInView',{time_sec:Math.round((Date.now()-pageLoadTime)/1000)})});
 
   // 8. Exit Intent
   document.addEventListener('mouseleave',function(e){
